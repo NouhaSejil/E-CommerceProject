@@ -1,4 +1,4 @@
-package com.idl.entities;
+package com.example.demo.entity;
 
 
 
