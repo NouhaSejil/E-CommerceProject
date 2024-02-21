@@ -1,8 +1,8 @@
-package com.idl.service;
+package com.example.demo.service;
 
 
+import com.example.demo.entity.User;
 
-import com.idl.entities.User;
 
 
 import java.util.List;
@@ -19,7 +19,7 @@ public interface IuserService {
 	User getUserByFname(String fname);
 	 String deleteUser(long id);
 	 
-	 User updateUser(User user);
+	 User updateUser(Long id,User user);
 
 
 	

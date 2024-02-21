@@ -1,12 +1,13 @@
-package com.idl.service;
+package com.example.demo.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.idl.entities.User;
-import com.idl.repository.UserRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.entity.Product;
+import com.example.demo.entity.User;
 @Service
 public class ImpluserService implements IuserService {
 	@Autowired
@@ -36,8 +37,9 @@ public class ImpluserService implements IuserService {
 	}
 
 	@Override
-	public User updateUser(User user) {
-		User existingUser=urepos.findById(user.getId()).orElse(null);
+	public User updateUser(Long id,User user) {
+	        
+		User existingUser=urepos.findById(id).orElse(null);
 		existingUser.setEmail(user.getEmail());
 		existingUser.setPwd(user.getPwd());
 		existingUser.setFname(user.getFname());
