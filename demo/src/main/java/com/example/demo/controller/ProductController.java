@@ -25,7 +25,7 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
-    @PostMapping
+    @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product) {
         return productService.addProduct(product);
     }
@@ -40,14 +40,14 @@ public class ProductController {
         productService.deleteProduct(id);
     }
     
-    @GetMapping("/search")
-    public List<Product> searchProductsByName(@RequestParam String name) {
+    @GetMapping("/search/{name}")
+    public List<Product> searchProductsByName(@PathVariable String name) {
         return productService.searchProductsByName(name);
     }
     
     
-    @GetMapping("/searchByPrice")
-    public List<Product> searchProductsByPrice(@RequestParam double minPrice, @RequestParam double maxPrice) {
+    @GetMapping("/searchByPrice/{minPrice}-{maxPrice}")
+    public List<Product> searchProductsByPrice(@PathVariable double minPrice, @PathVariable double maxPrice) {
         return productService.searchProductsByPrice(minPrice, maxPrice);
     }
     

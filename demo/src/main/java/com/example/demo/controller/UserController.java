@@ -1,4 +1,4 @@
-package com.idl.controller;
+package com.example.demo.controller;
 
 
 import java.util.List;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.idl.entities.User;
- import com.idl.service.IuserService;
+import com.example.demo.entity.User;
+ import com.example.demo.service.IuserService;
 @RestController
 	@RequestMapping("/api")
 public class UserController {
@@ -50,9 +50,9 @@ public class UserController {
 	public String deleteUser (@PathVariable long id) {
 		return userv.deleteUser(id);
 	}
-	@PutMapping("/update")
-	public User updateUser(@Valid @RequestBody User user) {
-	    return userv.updateUser(user);
+	@PutMapping("/update/{id}")
+	public User updateUser(@PathVariable Long id,@Valid @RequestBody User user) {
+	    return userv.updateUser(id,user);
 	}
 	
 
